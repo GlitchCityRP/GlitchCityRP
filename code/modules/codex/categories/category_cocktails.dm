@@ -3,6 +3,12 @@
 	desc = "Various mixes of drinks, alcoholic and otherwise, that can be made by a skilled bartender."
 	guide_name = "Bartending"
 
+/decl/cocktail/proc/get_additional_guide_text()
+	return
+
+/decl/cocktail/proc/get_additional_mechanics_text()
+	return
+
 /decl/codex_category/cocktails/Populate()
 
 	var/list/entries_to_register = list()
@@ -31,6 +37,16 @@
 
 		guide_html += "<h3>[capitalize(cocktail.name)]</h3>Mix [english_list(ingredients)] in a glass."
 		mechanics_text += "<ul><li>[jointext(ingredients, "</li><li>")]</li></ul>"
+
+		// GLITCH CITY RP EDIT
+		// TODO: MODULARISE
+		var/additional_guide_text = cocktail.get_additional_guide_text()
+		var/additional_mechanics_text = cocktail.get_additional_mechanics_text()
+		if(LAZYLEN(additional_guide_text))
+			guide_html += " [jointext(additional_guide_text, " ")]"
+		if(LAZYLEN(additional_mechanics_text))
+			mechanics_text += "<br/>[jointext(additional_mechanics_text, "<br>")]"
+		// END GLITCH CITY RP EDIT
 
 		entries_to_register += new /datum/codex_entry(         \
 		 _display_name =       "[cocktail.name] (cocktail)",   \

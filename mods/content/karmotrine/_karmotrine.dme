@@ -1,0 +1,13 @@
+#ifndef MODPACK_KARMOTRINE
+#define MODPACK_KARMOTRINE
+// BEGIN_INCLUDE
+#include "karmotrine.dm"
+#include "datum/chems.dm"
+#include "datum/cocktails.dm"
+#include "datum/reactions.dm"
+#include "datum/seeds.dm"
+#include "items/cartridge_presets.dm"
+#include "machinery/blending.dm"
+#include "machinery/dispenser_presets.dm"
+// END_INCLUDE
+#endif
