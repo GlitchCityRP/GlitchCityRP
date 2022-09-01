@@ -1,0 +1,9 @@
+#ifndef MODPACK_GLITCH_CITY
+#define MODPACK_GLITCH_CITY
+#include "glitch_city.dm"
+#include "machinery/lighting.dm"
+#include "structures/billboards.dm"
+#include "structures/city_objects.dm"
+#include "structures/city_signs.dm"
+#include "turfs/city_turfs.dm"
+#endif
