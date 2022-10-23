@@ -205,7 +205,7 @@ var/global/floorIsLava = 0
 	var/list/language_types = decls_repository.get_decls_of_subtype(/decl/language)
 	for(var/k in language_types)
 		var/decl/language/L = language_types[k]
-		if(!(L.flags & INNATE))
+		if(!(L.flags & LANG_FLAG_INNATE))
 			if(!f)
 				body += " | "
 			else
@@ -822,7 +822,7 @@ var/global/floorIsLava = 0
 		return 0
 	if(SSticker.start_now())
 		log_admin("[usr.key] has started the game.")
-		message_admins("<font color='blue'>[usr.key] has started the game.</font>")
+		message_admins(SPAN_BLUE("[usr.key] has started the game."))
 		SSstatistics.add_field_details("admin_verb","SN") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 		return 1
 	else
