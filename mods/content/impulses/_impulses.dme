@@ -1,0 +1,9 @@
+#ifndef CONTENT_PACK_IMPULSES
+#define CONTENT_PACK_IMPULSES
+#include "impulses.dm"
+#include "preferences.dm"
+#include "controllers/impulses.dm"
+#include "datums/impulse.dm"
+#include "datums/impulse_types.dm"
+#include "datums/rewards.dm"
+#endif
