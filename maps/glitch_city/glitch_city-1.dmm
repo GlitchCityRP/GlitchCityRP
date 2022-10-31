@@ -52,7 +52,6 @@
 /area/glitch_city/bar)
 "iy" = (
 /obj/machinery/light/street{
-	default_pixel_y = null;
 	dir = 1;
 	pixel_y = 8
 	},
@@ -62,7 +61,6 @@
 /area/glitch_city/street)
 "iN" = (
 /obj/machinery/light/street{
-	default_pixel_x = null;
 	dir = 4
 	},
 /turf/exterior/concrete/pavement/corner{
@@ -128,7 +126,6 @@
 /area/glitch_city/bar)
 "lW" = (
 /obj/machinery/light/street{
-	default_pixel_y = null;
 	dir = 1;
 	pixel_y = 8
 	},
@@ -179,7 +176,6 @@
 /area/glitch_city/street)
 "oP" = (
 /obj/machinery/light/street{
-	default_pixel_x = null;
 	dir = 8
 	},
 /turf/exterior/concrete/pavement/corner,
@@ -341,7 +337,6 @@
 /area/glitch_city/street)
 "zb" = (
 /obj/machinery/light/street{
-	default_pixel_x = null;
 	dir = 8
 	},
 /turf/exterior/concrete/pavement{
@@ -373,7 +368,6 @@
 /area/glitch_city/bar)
 "DA" = (
 /obj/machinery/light/street{
-	default_pixel_x = null;
 	dir = 8
 	},
 /turf/exterior/concrete/pavement/corner{
@@ -452,7 +446,6 @@
 /area/glitch_city/street)
 "Ij" = (
 /obj/machinery/light/street{
-	default_pixel_x = null;
 	dir = 4
 	},
 /turf/exterior/concrete/pavement{
@@ -540,7 +533,6 @@
 /area/glitch_city/bar)
 "OK" = (
 /obj/machinery/light/street{
-	default_pixel_x = null;
 	dir = 4
 	},
 /turf/exterior/concrete/pavement/corner{
@@ -672,7 +664,6 @@
 /area/glitch_city/bar)
 "Wv" = (
 /obj/machinery/light/street{
-	default_pixel_x = null;
 	dir = 8;
 	pixel_y = 12
 	},
@@ -713,7 +704,6 @@
 /area/glitch_city/street)
 "Zi" = (
 /obj/machinery/light/street{
-	default_pixel_y = null;
 	dir = 1;
 	pixel_y = 8
 	},
