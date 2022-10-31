@@ -128,7 +128,7 @@
 	name = "Crevice Spike"
 	description = "It will knock the drunkenness out of you or knock you out cold."
 	glass_icon = 'mods/content/karmotrine/icons/cocktails.dmi'
-	glass_icon_state = "crevice_spike"
+	glass_icon_state = "crevicespike"
 	ratios = list(
 		/decl/material/liquid/blendable/powdered_delta =       2,
 		/decl/material/liquid/capsaicin/flanergide = 4
