@@ -27,8 +27,8 @@
 
 //colored bulbs
 /obj/item/light/tube/large/neon
-	b_range = 12
 	b_power = 0.95
+	b_range = 4.5
 
 /obj/item/light/tube/large/neon/red
 	b_color = "#ff9999"
@@ -37,7 +37,7 @@
 	b_color = "#ffcc66"
 
 /obj/item/light/tube/large/neon/purple
-	b_color = "#b957d9"
+	b_color = "#cf90e4"
 
 /obj/item/light/tube/large/neon/pink
 	b_color = "#ff6699"
@@ -63,6 +63,7 @@
 	icon_state = "streetlamp_map"
 	base_state = "streetlamp"
 	desc = "A neon glow to light your way."
+	obj_flags = null
 	density = TRUE
 	light_type = /obj/item/light/bulb/street
 	accepts_light_type = /obj/item/light/bulb/street
