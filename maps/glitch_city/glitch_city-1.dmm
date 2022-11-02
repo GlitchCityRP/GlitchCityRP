@@ -253,7 +253,7 @@
 /turf/exterior/concrete/pavement,
 /area/glitch_city/street)
 "sJ" = (
-/obj/vehicle/bike/electric{
+/obj/vehicle/bike/electric/street{
 	dir = 8
 	},
 /turf/exterior/concrete/road/empty,

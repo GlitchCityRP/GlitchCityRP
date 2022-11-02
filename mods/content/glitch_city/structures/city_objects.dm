@@ -21,3 +21,10 @@
 	luminosity = 3
 	icon = 'mods/content/glitch_city/icons/obj/pedestrian.dmi'
 	icon_state = "pede-ani"
+
+/obj/vehicle/bike/electric/street
+	engine_type = /obj/item/engine/electric
+	prefilled = 1
+	land_speed = 1.5
+	space_speed = 0
+	trail = null
