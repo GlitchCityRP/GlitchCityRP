@@ -105,7 +105,7 @@
 		if(health == max_health)
 			to_chat(user, "\The [src] does not require repairs.")
 			return
-		if(C.remove_fuel(0,user))
+		if(C.weld(0,user))
 			playsound(src, 'sound/items/Welder.ogg', 100, 1)
 			health = min(health + rand(20,30), max_health)
 			if(health == max_health)
@@ -114,8 +114,8 @@
 				to_chat(user, "You repair some dents on \the [src].")
 
 
-/obj/item/airlock_brace/proc/take_damage(var/amount)
-	health = clamp(0, health - amount, max_health)
+/obj/item/airlock_brace/take_damage(amount, damtype, silent)
+	health = clamp(health - amount, 0, max_health)
 	if(!health)
 		if(airlock)
 			airlock.visible_message("<span class='danger'>\The [src] breaks off of \the [airlock]!</span>")

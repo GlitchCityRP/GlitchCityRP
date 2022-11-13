@@ -140,7 +140,7 @@
 				/obj/item/stack/package_wrap/twenty_five = 1,
 				/obj/item/hand_labeler = 1,
 				/obj/random/bomb_supply = 2,
-				/obj/item/extinguisher = 1,
+				/obj/item/chems/spray/extinguisher = 1,
 				/obj/item/clothing/gloves/insulated/cheap = 1,
 				/obj/item/stack/cable_coil/random = 2,
 				/obj/random/toolbox = 2,
@@ -525,7 +525,7 @@
 		/obj/item/sword/katana/toy,
 		/obj/item/toy/snappop,
 		/obj/item/energy_blade/sword/toy,
-		/obj/item/toy/water_balloon,
+		/obj/item/chems/water_balloon,
 		/obj/item/gun/launcher/foam/crossbow,
 		/obj/item/toy/blink,
 		/obj/item/toy/prize/powerloader,
@@ -640,7 +640,7 @@
 	return list(/obj/item/flashlight/lantern,
 				/obj/item/flashlight/flare,
 				/obj/item/flashlight/pen,
-				/obj/item/toner,
+				/obj/item/chems/toner_cartridge,
 				/obj/item/paicard,
 				/obj/item/destTagger,
 				/obj/item/beartrap,
@@ -1205,7 +1205,7 @@ var/global/list/random_useful_
 /obj/random/clipboard
 	name = "random clipboard"
 	desc = "This is a random material clipboard."
-	icon = 'icons/obj/bureaucracy.dmi'
+	icon = 'icons/obj/items/clipboard.dmi'
 	icon_state = "clipboard_preview"
 
 /obj/random/clipboard/spawn_choices()

@@ -147,6 +147,7 @@
 
 	to_chat(user, "[html_icon(src)] That's [f_name] [suffix]")
 	to_chat(user, desc)
+	events_repository.raise_event(/decl/observ/atom_examined, src, user, distance)
 	return TRUE
 
 // called by mobs when e.g. having the atom as their machine, loc (AKA mob being inside the atom) or buckled var set.
@@ -491,6 +492,13 @@
 	color = new_color
 
 /atom/proc/get_cell()
+	return
+
+// This proc will retrieve any radios associated with this atom,
+// for use in handle_message_mode or other radio-based logic.
+// The message_mode argument is used to determine what subset of
+// radios are relevant to the current call (ie. intercoms or ear radios)
+/atom/proc/get_radio(var/message_mode)
 	return
 
 /atom/proc/building_cost()
