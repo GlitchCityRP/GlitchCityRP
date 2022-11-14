@@ -41,4 +41,6 @@
 	. = ..()
 
 /obj/structure/rack/dark
+	material = /decl/material/solid/metal/steel
+	material_alteration = MAT_FLAG_ALTERATION_NAME
 	color = COLOR_GRAY40
