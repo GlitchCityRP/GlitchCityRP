@@ -6,4 +6,5 @@
 #include "datums/impulse.dm"
 #include "datums/impulse_types.dm"
 #include "datums/rewards.dm"
+#include "objects/store_rack.dm"
 #endif

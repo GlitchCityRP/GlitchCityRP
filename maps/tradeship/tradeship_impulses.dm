@@ -4,10 +4,6 @@
 		/area/ship/trade/crew/saloon = 20,
 		/area/ship/trade/crew/kitchen = 5
 	)
-	obtain_objective_items = list(
-		/obj/item/chems/drinks/shaker,
-		/obj/item/chems/drinks/glass2
-	)
 	obtain_store_areas = list(
 		/area/ship/trade/crew/saloon
 	)

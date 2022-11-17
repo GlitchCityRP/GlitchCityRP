@@ -14,10 +14,11 @@ SUBSYSTEM_DEF(impulses)
 
 /datum/controller/subsystem/impulses/Initialize(start_timeofday)
 	. = ..()
-	validate_impulses()
+	validate_impulses() // done in init for people to be able to add (valid) impulses via adminbus procs
 
 /datum/controller/subsystem/impulses/proc/validate_impulses()
 	// I wish we had static procs.
+	valid_impulse_paths = null
 	for(var/impulse_path in subtypesof(/datum/impulse))
 		var/datum/impulse/imp = new impulse_path
 		if(!imp.can_roll())
@@ -25,6 +26,7 @@ SUBSYSTEM_DEF(impulses)
 		valid_impulse_paths += impulse_path
 
 /datum/controller/subsystem/impulses/fire(resumed)
+	validate_impulses() // done here in case things like store racks change
 	for(var/mob/living/carbon/human/H in global.human_mob_list)
 		if(!H.mind || !H.client)
 			continue
