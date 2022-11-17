@@ -12,6 +12,7 @@
 	#include "../../mods/content/scaling_descriptors.dm"
 	#include "../../mods/content/xenobiology/_xenobiology.dme"
 	#include "../../mods/content/matchmaking/_matchmaking.dme"
+	#include "../../mods/content/impulses/_impulses.dme"
 	#include "../../mods/content/karmotrine/_karmotrine.dme"
 
 	#include "../../mods/mobs/dionaea/_dionaea.dme"
@@ -42,6 +43,7 @@
 	#include "tradeship_areas.dm"
 	#include "tradeship_departments.dm"
 	#include "tradeship_documents.dm"
+	#include "tradeship_impulses.dm"
 	#include "tradeship_jobs.dm"
 	#include "tradeship_loadouts.dm"
 	#include "tradeship_overmap.dm"
