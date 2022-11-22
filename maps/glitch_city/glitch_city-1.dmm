@@ -18,9 +18,32 @@
 	},
 /turf/simulated/floor/wood/walnut,
 /area/glitch_city/bar)
+"cb" = (
+/obj/structure/rack/dark,
+/obj/random/tech_supply,
+/obj/random/tech_supply,
+/turf/simulated/floor/tiled/dark/monotile,
+/area/glitch_city/street)
 "cj" = (
 /obj/structure/billboard,
 /turf/exterior/concrete/pavement/empty,
+/area/glitch_city/street)
+"cU" = (
+/obj/structure/rack/dark,
+/obj/random/tech_supply,
+/obj/random/tech_supply,
+/obj/random/tech_supply,
+/turf/simulated/floor/tiled/dark/monotile,
+/area/glitch_city/street)
+"cW" = (
+/obj/structure/rack/dark,
+/obj/machinery/light/neon/lyellow{
+	dir = 8
+	},
+/obj/random/tech_supply,
+/obj/random/tech_supply,
+/obj/random/tech_supply,
+/turf/simulated/floor/tiled/dark/monotile,
 /area/glitch_city/street)
 "dx" = (
 /obj/structure/bed/sofa/l{
@@ -58,6 +81,15 @@
 /obj/structure/sign/poster,
 /turf/simulated/floor/wood/walnut,
 /area/glitch_city/bar)
+"hr" = (
+/obj/structure/rack/dark,
+/obj/random/smokes,
+/obj/random/smokes,
+/obj/random/smokes,
+/obj/random/smokes,
+/obj/random/smokes,
+/turf/simulated/floor/tiled/dark/monotile,
+/area/glitch_city/street)
 "ic" = (
 /obj/structure/table/marble,
 /obj/machinery/reagentgrinder/juicer{
@@ -203,6 +235,15 @@
 "nv" = (
 /turf/exterior/concrete/pavement/empty,
 /area/glitch_city/street)
+"nL" = (
+/obj/structure/rack/dark,
+/obj/random/toy,
+/obj/random/toy,
+/obj/random/toy,
+/obj/random/toy,
+/obj/random/toy,
+/turf/simulated/floor/tiled/dark/monotile,
+/area/glitch_city/street)
 "oi" = (
 /obj/machinery/door/airlock/civilian{
 	id_tag = "s13_bathroom";
@@ -283,6 +324,12 @@
 	},
 /turf/simulated/floor/wood/walnut,
 /area/glitch_city/bar)
+"sv" = (
+/obj/structure/rack/dark,
+/obj/random/tool/power,
+/obj/random/tool/power,
+/turf/simulated/floor/tiled/dark/monotile,
+/area/glitch_city/street)
 "sB" = (
 /obj/machinery/vending/boozeomat,
 /turf/simulated/floor/lino,
@@ -394,6 +441,15 @@
 "yT" = (
 /turf/simulated/wall/concrete,
 /area/glitch_city/street)
+"yY" = (
+/obj/structure/rack/dark,
+/obj/random/medical/lite,
+/obj/random/medical/lite,
+/obj/random/medical/lite,
+/obj/random/medical/lite,
+/obj/random/medical/lite,
+/turf/simulated/floor/tiled/dark/monotile,
+/area/glitch_city/street)
 "zb" = (
 /obj/machinery/light/street{
 	dir = 8
@@ -425,6 +481,15 @@
 /obj/structure/sign/double/barsign,
 /turf/simulated/floor/wood/walnut,
 /area/glitch_city/bar)
+"BW" = (
+/obj/structure/rack/dark,
+/obj/random/drinkbottle,
+/obj/random/drinkbottle,
+/obj/random/drinkbottle,
+/obj/random/drinkbottle,
+/obj/random/drinkbottle,
+/turf/simulated/floor/tiled/dark/monotile,
+/area/glitch_city/street)
 "DA" = (
 /obj/machinery/light/street{
 	dir = 8
@@ -440,6 +505,22 @@
 "FB" = (
 /obj/machinery/light/neon/lyellow,
 /turf/simulated/floor/tiled/dark,
+/area/glitch_city/street)
+"Gp" = (
+/obj/structure/rack/dark,
+/obj/random/tool,
+/obj/random/tool,
+/turf/simulated/floor/tiled/dark/monotile,
+/area/glitch_city/street)
+"Gt" = (
+/obj/structure/rack/dark,
+/obj/random/snack,
+/obj/random/snack,
+/obj/random/snack,
+/obj/random/snack,
+/obj/random/snack,
+/obj/random/snack,
+/turf/simulated/floor/tiled/dark/monotile,
 /area/glitch_city/street)
 "GE" = (
 /obj/machinery/door/airlock/double/glass/civilian,
@@ -495,6 +576,15 @@
 	},
 /turf/simulated/floor/lino,
 /area/glitch_city/bar)
+"HR" = (
+/obj/structure/rack/dark,
+/obj/random/snack,
+/obj/random/snack,
+/obj/random/snack,
+/obj/random/snack,
+/obj/random/snack,
+/turf/simulated/floor/tiled/dark/monotile,
+/area/glitch_city/street)
 "Id" = (
 /obj/machinery/light/street{
 	dir = 8
@@ -599,6 +689,18 @@
 	dir = 4
 	},
 /area/glitch_city/street)
+"NK" = (
+/obj/structure/rack/dark,
+/obj/machinery/light/neon/lyellow{
+	dir = 8
+	},
+/obj/random/smokes,
+/obj/random/smokes,
+/obj/random/smokes,
+/obj/random/smokes,
+/obj/random/smokes,
+/turf/simulated/floor/tiled/dark/monotile,
+/area/glitch_city/street)
 "NR" = (
 /obj/structure/bed/sofa/m/red{
 	dir = 1
@@ -665,6 +767,15 @@
 /obj/item/stool/bar/padded,
 /turf/simulated/floor/wood/walnut,
 /area/glitch_city/bar)
+"RN" = (
+/obj/structure/rack/dark,
+/obj/machinery/light/neon/lyellow{
+	dir = 4
+	},
+/obj/random/tool,
+/obj/random/tool,
+/turf/simulated/floor/tiled/dark/monotile,
+/area/glitch_city/street)
 "Sq" = (
 /obj/structure/bed/chair/pew/left/mahogany{
 	name = "bench"
@@ -757,6 +868,13 @@
 	pixel_y = 12
 	},
 /turf/exterior/concrete/pavement,
+/area/glitch_city/street)
+"Xg" = (
+/obj/structure/rack/dark,
+/obj/random/storage,
+/obj/random/storage,
+/obj/random/storage,
+/turf/simulated/floor/tiled/dark/monotile,
 /area/glitch_city/street)
 "XK" = (
 /obj/structure/flora/grass/green,
@@ -2930,8 +3048,8 @@ VS
 UJ
 YP
 Lg
-IK
-IK
+yY
+yY
 id
 IK
 IK
@@ -3444,11 +3562,11 @@ VS
 UJ
 YP
 Lg
-IK
-IK
-Qp
-IK
-IK
+cU
+cU
+cW
+cU
+cb
 Lg
 IK
 YP
@@ -3958,13 +4076,13 @@ VS
 lW
 YP
 Lg
-IK
-IK
-id
-IK
-IK
+sv
+Gp
+RN
+Xg
+Xg
 Lg
-IK
+BW
 YP
 nv
 sE
@@ -4221,7 +4339,7 @@ yT
 yT
 yT
 wB
-IK
+BW
 YP
 nv
 sE
@@ -4472,13 +4590,13 @@ VS
 UJ
 YP
 Lg
-IK
-IK
-Qp
-IK
-IK
+HR
+Gt
+NK
+hr
+nL
 Lg
-IK
+BW
 YP
 nv
 sE
