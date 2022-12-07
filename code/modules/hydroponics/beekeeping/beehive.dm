@@ -159,7 +159,7 @@
 	var/trays = 0
 	for(var/obj/machinery/portable_atmospherics/hydroponics/H in view(7, src))
 		if(H.seed && !H.dead)
-			H.health += 0.05 * coef
+			H.plant_health += 0.05 * coef
 			++trays
 	honeycombs = min(honeycombs + 0.1 * coef * min(trays, 5), frames * 100)
 
@@ -221,7 +221,7 @@
 	name = "bee smoker"
 	desc = "A device used to calm down bees before harvesting honey."
 	icon = 'icons/obj/items/weapon/batterer.dmi'
-	icon_state = "battererburnt"
+	icon_state = ICON_STATE_WORLD
 	w_class = ITEM_SIZE_SMALL
 	material = /decl/material/solid/metal/steel
 

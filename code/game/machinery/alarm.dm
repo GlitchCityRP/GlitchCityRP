@@ -117,6 +117,8 @@
 
 /obj/machinery/alarm/nobreach
 	breach_detection = 0
+/obj/machinery/alarm/nobreach/airlock
+	frequency = EXTERNAL_AIR_FREQ
 
 /obj/machinery/alarm/monitor
 	report_danger_level = 0
@@ -1041,8 +1043,8 @@ FIRE ALARM
 /obj/machinery/partyalarm
 	name = "\improper PARTY BUTTON"
 	desc = "Cuban Pete is in the house!"
-	icon = 'icons/obj/monitors.dmi'
-	icon_state = "fire0"
+	icon = 'icons/obj/firealarm.dmi'
+	icon_state = "casing"
 	anchored = TRUE
 	idle_power_usage = 2
 	active_power_usage = 6

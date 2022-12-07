@@ -10,7 +10,7 @@
 	desc              = "A wrapped package."
 	icon              = 'icons/obj/items/storage/deliverypackage.dmi'
 	icon_state        = "parcel"
-	item_flags        = ITEM_FLAG_HOLLOW
+	obj_flags         = OBJ_FLAG_HOLLOW
 	material          = /decl/material/solid/paper
 	attack_verb       = list("delivered a hit", "expedited on", "shipped at", "went postal on")
 	base_parry_chance = 40 //Boxes tend to be good at parrying
@@ -241,7 +241,7 @@
 		var/list/cuttings = material.place_cuttings(get_turf(src), matter[material.type])
 		//Make the bits of paper the right color
 		for(var/obj/item/C in cuttings)
-			C.applies_material_colour = FALSE //Prevents the update_icon code from recoloring this white
+			C.material_alteration &= ~(MAT_FLAG_ALTERATION_COLOR) //Prevents the update_icon code from recoloring this white
 			C.set_color(trash_color)
 	. = ..()
 
