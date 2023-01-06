@@ -12,8 +12,7 @@
 /obj/item/stack
 	gender = PLURAL
 	origin_tech = "{'materials':1}"
-	health = 32      //Stacks should take damage even if no materials
-	max_health = 32
+	max_health = 32 //Stacks should take damage even if no materials
 	/// A copy of initial matter list when this atom initialized. Stack matter should always assume a single tile.
 	var/list/matter_per_piece
 	var/singular_name
@@ -47,11 +46,20 @@
 		plural_name = "[singular_name]s"
 
 /obj/item/stack/Destroy()
-	if(uses_charge)
-		return 1
 	if (src && usr && usr.machine == src)
 		close_browser(usr, "window=stack")
+	if(length(synths))
+		synths.Cut()
 	return ..()
+
+/obj/item/stack/proc/delete_if_empty()
+	if (uses_charge)
+		return FALSE
+	var/real_amount = get_amount()
+	if (real_amount <= 0)
+		on_used_last()
+		return TRUE
+	return FALSE
 
 /obj/item/stack/examine(mob/user, distance)
 	. = ..()
@@ -188,7 +196,8 @@
 		list_recipes(usr, text2num(href_list["sublist"]))
 
 	if (href_list["make"])
-		if (src.get_amount() < 1) qdel(src) //Never should happen
+		if(delete_if_empty()) // Should never happen
+			return
 
 		var/list/recipes_list = get_recipes()
 		if (href_list["sublist"])
@@ -232,9 +241,7 @@
 		return FALSE
 	if(!uses_charge)
 		amount -= used
-		if (amount <= 0)
-			qdel(src) //should be safe to qdel immediately since if someone is still using this stack it will persist for a little while longer
-		else
+		if(!delete_if_empty())
 			update_icon()
 			update_matter()
 		return TRUE
@@ -246,6 +253,9 @@
 			S.use_charge(charge_costs[i] * used) // Doesn't need to be deleted
 		update_icon()
 		return TRUE
+
+/obj/item/stack/proc/on_used_last()
+	qdel(src) //should be safe to qdel immediately since if someone is still using this stack it will persist for a little while longer
 
 /obj/item/stack/proc/add(var/extra)
 	if(!uses_charge)

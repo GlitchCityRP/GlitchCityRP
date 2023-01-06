@@ -37,6 +37,10 @@
 	var/inertia_move_delay = 5
 	var/atom/movable/inertia_ignore
 
+// This proc determines if the instance is preserved when the process() despawn of crypods occurs.
+/atom/movable/proc/preserve_in_cryopod(var/obj/machinery/cryopod/pod)
+	return FALSE
+
 //call this proc to start space drifting
 /atom/movable/proc/space_drift(direction)//move this down
 	if(!loc || direction & (UP|DOWN) || Process_Spacemove(0))
@@ -182,7 +186,7 @@
 
 	// observ
 	if(!loc)
-		events_repository.raise_event(/decl/observ/moved, src, origin, null)
+		RAISE_EVENT(/decl/observ/moved, src, origin, null)
 
 	// freelook
 	if(opacity)
@@ -234,7 +238,7 @@
 				unbuckle_mob()
 
 		if(!loc)
-			events_repository.raise_event(/decl/observ/moved, src, old_loc, null)
+			RAISE_EVENT(/decl/observ/moved, src, old_loc, null)
 
 		// freelook
 		if(opacity)

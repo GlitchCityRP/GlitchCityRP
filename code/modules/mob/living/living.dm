@@ -301,16 +301,6 @@ default behaviour is:
 		//Leave this commented out, it will cause storage items to exponentially add duplicate to the list
 		//for(var/obj/item/storage/S in Storage.return_inv()) //Check for storage items
 		//	L += get_contents(S)
-
-		for(var/obj/item/gift/G in Storage.return_inv()) //Check for gift-wrapped items
-			L += G.gift
-			if(istype(G.gift, /obj/item/storage))
-				L += get_contents(G.gift)
-
-		for(var/obj/item/smallDelivery/D in Storage.return_inv()) //Check for package wrapped items
-			L += D.wrapped
-			if(istype(D.wrapped, /obj/item/storage)) //this should never happen
-				L += get_contents(D.wrapped)
 		return L
 
 	else
@@ -318,16 +308,6 @@ default behaviour is:
 		L += src.contents
 		for(var/obj/item/storage/S in src.contents)	//Check for storage items
 			L += get_contents(S)
-
-		for(var/obj/item/gift/G in src.contents) //Check for gift-wrapped items
-			L += G.gift
-			if(istype(G.gift, /obj/item/storage))
-				L += get_contents(G.gift)
-
-		for(var/obj/item/smallDelivery/D in src.contents) //Check for package wrapped items
-			L += D.wrapped
-			if(istype(D.wrapped, /obj/item/storage)) //this should never happen
-				L += get_contents(D.wrapped)
 		return L
 
 /mob/living/proc/check_contents_for(A)
@@ -468,7 +448,7 @@ default behaviour is:
 /mob/living/carbon/basic_revival(var/repair_brain = TRUE)
 	if(repair_brain && should_have_organ(BP_BRAIN))
 		repair_brain = FALSE
-		var/obj/item/organ/internal/brain/brain = get_organ(BP_BRAIN, /obj/item/organ/internal/brain)
+		var/obj/item/organ/internal/brain = GET_INTERNAL_ORGAN(src, BP_BRAIN)
 		if(brain)
 			if(brain.damage > (brain.max_damage/2))
 				brain.damage = (brain.max_damage/2)
@@ -1056,6 +1036,10 @@ default behaviour is:
 
 /mob/living/proc/apply_fall_damage(var/turf/landing)
 	adjustBruteLoss(rand(max(1, CEILING(mob_size * 0.33)), max(1, CEILING(mob_size * 0.66))))
+
+/mob/living/proc/get_toxin_resistance()
+	var/decl/species/species = get_species()
+	return isnull(species) ? 1 : species.toxins_mod
 
 /mob/living/proc/get_metabolizing_reagent_holders(var/include_contact = FALSE)
 	for(var/datum/reagents/adding in list(reagents, get_ingested_reagents(), get_inhaled_reagents()))

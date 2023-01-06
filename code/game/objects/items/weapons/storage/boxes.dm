@@ -28,7 +28,7 @@
 	max_storage_space = DEFAULT_BOX_STORAGE
 	use_sound = 'sound/effects/storage/box.ogg'
 	material = /decl/material/solid/cardboard
-	item_flags = ITEM_FLAG_HOLLOW
+	obj_flags = OBJ_FLAG_HOLLOW
 	var/foldable = /obj/item/stack/material/cardstock	// BubbleWrap - if set, can be folded (when empty) into a sheet of cardboard
 
 /obj/item/storage/box/large
@@ -499,11 +499,11 @@
 	icon_state = "box"
 /obj/item/storage/box/glowsticks/WillContain()
 	return list(
-			/obj/item/flashlight/flare/glowstick        = 1, 
+			/obj/item/flashlight/flare/glowstick        = 1,
 			/obj/item/flashlight/flare/glowstick/red    = 1,
 			/obj/item/flashlight/flare/glowstick/blue   = 1,
 			/obj/item/flashlight/flare/glowstick/orange = 1,
-			/obj/item/flashlight/flare/glowstick/yellow = 1, 
+			/obj/item/flashlight/flare/glowstick/yellow = 1,
 			/obj/item/flashlight/flare/glowstick/random = 1
 		)
 
@@ -694,6 +694,9 @@
 
 /obj/item/storage/box/snack/chips/WillContain()
 	return list(/obj/item/chems/food/chips = 7)
+
+/obj/item/storage/box/snack/buns/WillContain()
+	return list(/obj/item/chems/food/bun = 7)
 
 //canned goods in cardboard
 /obj/item/storage/box/canned

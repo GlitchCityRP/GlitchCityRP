@@ -217,6 +217,8 @@
 	connected_ai = null
 	QDEL_NULL(module)
 	QDEL_NULL(wires)
+	QDEL_NULL(cell)
+	QDEL_LIST_ASSOC_VAL(components)
 	. = ..()
 
 /mob/living/silicon/robot/proc/reset_module(var/suppress_alert = null)
@@ -482,8 +484,8 @@
 
 				var/obj/item/robot_parts/robot_component/WC = W
 				if(istype(WC))
-					C.brute_damage = WC.brute
-					C.electronics_damage = WC.burn
+					C.brute_damage = WC.brute_damage
+					C.electronics_damage = WC.burn_damage
 
 				to_chat(usr, "<span class='notice'>You install the [W.name].</span>")
 				return
@@ -557,8 +559,8 @@
 					var/datum/robot_component/C = components[remove]
 					var/obj/item/robot_parts/robot_component/I = C.wrapped
 					if(istype(I))
-						I.brute = C.brute_damage
-						I.burn = C.electronics_damage
+						I.set_bruteloss(C.brute_damage)
+						I.set_burnloss(C.electronics_damage)
 
 					removed_item = I
 					if(C.installed == 1)
@@ -760,7 +762,7 @@
 			dat += text("[obj]: <B>Activated</B><BR>")
 		else
 			dat += text("[obj]: <A HREF=?src=\ref[src];act=\ref[obj]>Activate</A><BR>")
-	if (emagged)
+	if (emagged && module.emag)
 		if(activated(module.emag))
 			dat += text("[module.emag]: <B>Activated</B><BR>")
 		else

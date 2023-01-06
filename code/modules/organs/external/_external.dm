@@ -452,6 +452,13 @@
 				// we can't use implanted() here since it's often interactive
 				imp_device.imp_in = owner
 				imp_device.implanted = TRUE
+
+			//Since limbs attached during surgery have their internal organs detached, we want to re-attach them if we're doing the proper install of the parent limb
+			else if(istype(implant, /obj/item/organ) && !detached)
+				var/obj/item/organ/O = implant
+				if(O.parent_organ == organ_tag)
+					//The add_organ chain will automatically handle properly removing the detached flag, and moving it to the proper lists
+					owner.add_organ(O, src, in_place, update_icon, detached)
 	else
 		//Handle installing into a stand-alone parent limb to keep dropped limbs in some kind of coherent state
 		if(!affected)
@@ -1315,7 +1322,7 @@ Note that amputating the affected organ does in fact remove the infection from t
 
 		if(!keep_organs)
 			for(var/obj/item/organ/thing in internal_organs)
-				if(!thing.vital && !BP_IS_PROSTHETIC(thing))
+				if(!thing.is_vital_to_owner() && !BP_IS_PROSTHETIC(thing))
 					qdel(thing)
 
 		owner.refresh_modular_limb_verbs()
@@ -1612,3 +1619,13 @@ Note that amputating the affected organ does in fact remove the infection from t
 			owner.gib()
 	else
 		return ..()
+
+/obj/item/organ/external/is_vital_to_owner()
+	if(isnull(vital_to_owner))
+		. = ..()
+		if(!.)
+			for(var/obj/item/organ/O in children)
+				if(O.is_vital_to_owner())
+					vital_to_owner = TRUE
+					break
+	return vital_to_owner

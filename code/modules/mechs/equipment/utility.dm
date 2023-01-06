@@ -349,7 +349,6 @@
 	. = ..()
 	to_chat(user, "It [get_visible_durability()].")
 
-
 /obj/item/drill_head/steel
 	material = /decl/material/solid/metal/steel
 
@@ -593,6 +592,10 @@
 	. = ..()
 	ion_trail = new /datum/effect/effect/system/trail/ion()
 	ion_trail.set_up(src)
+
+/obj/item/mech_equipment/ionjets/Destroy()
+	QDEL_NULL(ion_trail)
+	return ..()
 
 /obj/item/mech_equipment/ionjets/proc/allowSpaceMove()
 	if (!active)

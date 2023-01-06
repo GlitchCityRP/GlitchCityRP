@@ -16,14 +16,14 @@
 /mob/living/carbon/human/adjustBrainLoss(var/amount)
 	if(status_flags & GODMODE)	return 0	//godmode
 	if(should_have_organ(BP_BRAIN))
-		var/obj/item/organ/internal/brain/sponge = get_organ(BP_BRAIN, /obj/item/organ/internal/brain)
+		var/obj/item/organ/internal/sponge = GET_INTERNAL_ORGAN(src, BP_BRAIN)
 		if(sponge)
 			sponge.take_internal_damage(amount)
 
 /mob/living/carbon/human/setBrainLoss(var/amount)
 	if(status_flags & GODMODE)	return 0	//godmode
 	if(should_have_organ(BP_BRAIN))
-		var/obj/item/organ/internal/brain/sponge = get_organ(BP_BRAIN, /obj/item/organ/internal/brain)
+		var/obj/item/organ/internal/sponge = GET_INTERNAL_ORGAN(src, BP_BRAIN)
 		if(sponge)
 			sponge.damage = min(max(amount, 0),sponge.species.total_health)
 			updatehealth()
@@ -31,7 +31,7 @@
 /mob/living/carbon/human/getBrainLoss()
 	if(status_flags & GODMODE)	return 0	//godmode
 	if(should_have_organ(BP_BRAIN))
-		var/obj/item/organ/internal/brain/sponge = get_organ(BP_BRAIN, /obj/item/organ/internal/brain)
+		var/obj/item/organ/internal/sponge = GET_INTERNAL_ORGAN(src, BP_BRAIN)
 		if(sponge)
 			if(sponge.status & ORGAN_DEAD)
 				return sponge.species.total_health
@@ -74,7 +74,7 @@
 /mob/living/carbon/human/getBruteLoss()
 	var/amount = 0
 	for(var/obj/item/organ/external/O in get_external_organs())
-		if(BP_IS_PROSTHETIC(O) && !O.vital)
+		if(BP_IS_PROSTHETIC(O) && !O.is_vital_to_owner())
 			continue //robot limbs don't count towards shock and crit
 		amount += O.brute_dam
 	return amount
@@ -82,7 +82,7 @@
 /mob/living/carbon/human/getFireLoss()
 	var/amount = 0
 	for(var/obj/item/organ/external/O in get_external_organs())
-		if(BP_IS_PROSTHETIC(O) && !O.vital)
+		if(BP_IS_PROSTHETIC(O) && !O.is_vital_to_owner())
 			continue //robot limbs don't count towards shock and crit
 		amount += O.burn_dam
 	return amount
@@ -168,7 +168,7 @@
 	amount = abs(amount)
 
 	if (!heal)
-		amount = amount * species.get_toxins_mod(src)
+		amount *= get_toxin_resistance()
 		var/antitox = GET_CHEMICAL_EFFECT(src, CE_ANTITOX)
 		if(antitox)
 			amount *= 1 - antitox * 0.25

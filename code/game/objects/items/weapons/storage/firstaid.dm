@@ -17,7 +17,7 @@
 	max_w_class = ITEM_SIZE_SMALL
 	max_storage_space = DEFAULT_BOX_STORAGE
 	use_sound = 'sound/effects/storage/box.ogg'
-	item_flags = ITEM_FLAG_HOLLOW
+	obj_flags = OBJ_FLAG_HOLLOW
 	material = /decl/material/solid/plastic
 
 /obj/item/storage/firstaid/empty
@@ -192,3 +192,10 @@
 		/obj/item/flame/lighter,
 		/obj/item/stack/cable_coil
 	)
+
+/obj/item/storage/firstaid/clotting
+	name = "clotting kit"
+	desc = "Contains chemicals to stop bleeding."
+
+/obj/item/storage/firstaid/clotting/WillContain()
+	return list(/obj/item/chems/hypospray/autoinjector/clotting = 8)

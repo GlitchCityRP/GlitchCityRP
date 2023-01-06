@@ -9,7 +9,7 @@
 	obj_flags = OBJ_FLAG_CONDUCTIBLE
 	slot_flags = SLOT_LOWER_BODY
 	z_flags = ZMM_MANGLE_PLANES
-	item_flags = ITEM_FLAG_HOLLOW
+	obj_flags = OBJ_FLAG_HOLLOW
 	material = /decl/material/solid/metal/steel
 	var/active
 	var/det_time = 50
@@ -28,12 +28,14 @@
 
 /obj/item/grenade/on_update_icon()
 	. = ..()
+	z_flags &= ~ZMM_MANGLE_PLANES
 	if(active)
 		if(check_state_in_icon("[icon_state]-active", icon))
 			if(plane == HUD_PLANE)
 				add_overlay("[icon_state]-active")
 			else
 				add_overlay(emissive_overlay(icon, "[icon_state]-active"))
+				z_flags |= ZMM_MANGLE_PLANES
 	else if(check_state_in_icon("[icon_state]-pin", icon))
 		add_overlay("[icon_state]-pin")
 
