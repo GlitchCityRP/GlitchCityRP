@@ -85,22 +85,22 @@ var/global/list/datum/dna/gene/dna_genes[0]
 	//#TODO: Keep track of bodytype!!!!!
 
 // Make a copy of this strand.
-// USE THIS WHEN COPYING STUFF OR YOU'LL GET CORRUPTION!
-/datum/dna/proc/Clone()
-	var/datum/dna/new_dna = new()
-	new_dna.lineage=lineage
-	new_dna.unique_enzymes=unique_enzymes
-	new_dna.b_type=b_type
-	new_dna.real_name=real_name
-	new_dna.species=species || global.using_map.default_species
-	new_dna.body_markings=body_markings.Copy()
-	for(var/b=1;b<=DNA_SE_LENGTH;b++)
-		new_dna.SE[b]=SE[b]
-		if(b<=DNA_UI_LENGTH)
-			new_dna.UI[b]=UI[b]
-	new_dna.UpdateUI()
-	new_dna.UpdateSE()
-	return new_dna
+/datum/dna/PopulateClone(datum/dna/clone)
+	clone = ..()
+	clone.lineage        = lineage
+	clone.unique_enzymes = unique_enzymes
+	clone.b_type         = b_type
+	clone.real_name      = real_name
+	clone.species        = species || global.using_map.default_species
+	clone.body_markings  = deepCopyList(body_markings)
+	for(var/b in 1 to DNA_SE_LENGTH)
+		clone.SE[b] = SE[b]
+		if(b <= DNA_UI_LENGTH)
+			clone.UI[b] = UI[b]
+	clone.UpdateUI()
+	clone.UpdateSE()
+	return clone
+
 ///////////////////////////////////////
 // UNIQUE IDENTITY
 ///////////////////////////////////////

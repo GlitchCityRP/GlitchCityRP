@@ -205,7 +205,7 @@
 	if(directional_offset)
 		update_directional_offset()
 
-/** 
+/**
  * Applies the offset stored in the directional_offset json list depending on the current direction.
  * force will force the default offset to be 0 if there are no directional_offset string.
  */
@@ -227,8 +227,8 @@
 		default_pixel_z = curoff["z"] || 0
 	reset_offsets(0)
 
-/** 
- * Returns whether the object should be considered as hanging off a wall. 
+/**
+ * Returns whether the object should be considered as hanging off a wall.
  * This is userful because wall-mounted things are actually on the adjacent floor tile offset towards the wall.
  * Which means we have to deal with directional offsets differently. Such as with buttons mounted on a table, or on a wall.
  */
@@ -237,7 +237,7 @@
 	if(obj_flags & OBJ_FLAG_MOVES_UNSUPPORTED || anchor_fall)
 		var/turf/forward = get_step(get_turf(src), dir)
 		var/turf/reverse = get_step(get_turf(src), global.reverse_dir[dir])
-		//If we're wall mounted and don't have a wall either facing us, or in the opposite direction, don't apply the offset. 
+		//If we're wall mounted and don't have a wall either facing us, or in the opposite direction, don't apply the offset.
 		// This is mainly for things that can be both wall mounted and floor mounted. Like buttons, which mappers seem to really like putting on tables.
 		// Its sort of a hack for now. But objects don't handle being on a wall or not. (They don't change their flags, layer, etc when on a wall or anything)
 		if(!forward?.is_wall() && !reverse?.is_wall())
@@ -263,9 +263,19 @@
 /obj/proc/populate_reagents()
 	return
 
+//#TODO: Implement me for all other objects!
+/obj/PopulateClone(obj/clone)
+	clone = ..()
+	clone.req_access  = deepCopyList(req_access)
+	clone.matter      = matter?.Copy()
+	clone.anchor_fall = anchor_fall
+
+	//#TODO: once item damage in, check health!
+	return clone
+
 /**
  * Returns a list with the contents that may be spawned in this object.
- * This shouldn't include things that are necessary for the object to operate, like machine components. 
+ * This shouldn't include things that are necessary for the object to operate, like machine components.
  * Its mainly for populating storage and the like.
  */
 /obj/proc/WillContain()

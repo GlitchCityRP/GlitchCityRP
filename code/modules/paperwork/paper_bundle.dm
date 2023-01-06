@@ -459,18 +459,11 @@
 	LAZYADD(., /decl/interaction_handler/rename/paper_bundle)
 	LAZYADD(., /decl/interaction_handler/unbundle/paper_bundle)
 
-/obj/item/paper_bundle/proc/Clone()
-	var/obj/item/paper_bundle/copy = new
+/obj/item/paper_bundle/PopulateClone(obj/item/paper_bundle/clone)
+	clone = ..()
 	for(var/obj/item/I in pages)
-		if(istype(I, /obj/item/paper))
-			var/obj/item/paper/P = I
-			copy.merge(P.Clone())
-		else if(istype(I, /obj/item/photo))
-			var/obj/item/photo/Ph = I
-			copy.merge(Ph.Clone())
-		else
-			CRASH("Tried to clone a bundle with an invalid item type inside '[I.type]'")
-	return copy
+		clone.merge(I.Clone())
+	return clone
 
 /obj/item/paper_bundle/verb/rename()
 	set name = "Rename Bundle"

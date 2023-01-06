@@ -34,23 +34,31 @@ var/global/file_uid = 0
 		hard_drive.remove_file(src, forced = TRUE)
 	. = ..()
 
-// Returns independent copy of this file.
-/datum/computer_file/proc/clone(var/rename = 0)
-	var/datum/computer_file/temp = new type
-	temp.unsendable = unsendable
-	temp.undeletable = undeletable
-	temp.size = size
+/datum/computer_file/PopulateClone(datum/computer_file/clone)
+	clone = ..()
+	clone.unsendable  = unsendable
+	clone.undeletable = undeletable
+	clone.size        = size
 	if(metadata)
-		temp.metadata = metadata.Copy()
-	if(rename)
-		temp.filename = filename + copy_string
-	else
-		temp.filename = filename
-	temp.filetype = filetype
-	temp.read_access = read_access
-	temp.write_access = write_access
-	temp.mod_access = mod_access
-	return temp
+		clone.metadata = listDeepClone(metadata, TRUE)
+	clone.filetype     = filetype
+	clone.read_access  = deepCopyList(read_access)
+	clone.write_access = deepCopyList(write_access)
+	clone.mod_access   = deepCopyList(mod_access)
+	return clone
+
+/**
+ * Returns independent copy of this file.
+ * rename: Whether the clone shold be auto-renamed.
+ */
+/datum/computer_file/Clone(var/rename = FALSE)
+	var/datum/computer_file/clone = ..(null) //Don't propagate our rename param
+	if(clone)
+		if(rename)
+			clone.filename = filename + copy_string
+		else
+			clone.filename = filename
+	return clone
 
 /datum/computer_file/proc/get_file_perms(var/list/accesses, var/mob/user)
 	. = 0
